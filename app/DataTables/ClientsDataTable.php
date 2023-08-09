@@ -24,13 +24,23 @@ class ClientsDataTable extends DataTable
             ->editColumn('client', function (Client $user) {
                 return view('pages.apps.user-management.clients.columns._user', compact('user'));
             })
+
+            ->editColumn('phonenumber', function (Client $user) {
+                $phone = $user->phonenumber;
+                return substr($phone, 0, 2) . ' ' . substr($phone, 2, 3) . ' ' . substr($phone, 5, 3);
+            })
+
+            ->editColumn('credit', function (Client $user) {
+                return $user->credit . " DT";
+            })
             ->editColumn('created_at', function (Client $user) {
                 return $user->created_at->format('d M Y, h:i a');
             })
 
-////            ->editColumn('last_login_at', function (User $user) {
-////                return sprintf('<div class="badge badge-light fw-bold">%s</div>', $user->last_login_at ? $user->last_login_at->diffForHumans() : $user->updated_at->diffForHumans());
-////            })
+
+//            ->editColumn('last_login_at', function (User $user) {
+//                return sprintf('<div class="badge badge-light fw-bold">%s</div>', $user->last_login_at ? $user->last_login_at->diffForHumans() : $user->updated_at->diffForHumans());
+//            })
 //            ->editColumn('created_at', function (User $user) {
 //                return $user->created_at->format('d M Y, h:i a');
 //            })
@@ -75,6 +85,7 @@ class ClientsDataTable extends DataTable
             Column::make('email'),
             Column::make('fullname'),
             Column::make('phonenumber'),
+            Column::make('credit'),
 //            Column::make('last_login_at')->title('Last Login'),
             Column::make('created_at')->title('Joined Date')->addClass('text-nowrap'),
             Column::computed('action')

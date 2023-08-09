@@ -6,11 +6,8 @@ use App\Models\Client;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Spatie\Permission\Models\Role;
 
 class AddClientModal extends Component
 
@@ -45,7 +42,7 @@ class AddClientModal extends Component
 
     public function submit()
     {
-        dd(Auth::user()->id);
+//        dd(Auth::user()->id);
         // Validate the form input data
         $this->validate();
 
