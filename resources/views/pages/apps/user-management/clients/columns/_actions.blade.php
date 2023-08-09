@@ -13,9 +13,9 @@
 {{--        </button>--}}
 {{--    </div>--}}
     <div class="menu-item px-3">
-        <button onclick="printContract({{$client}})" class="menu-link px-3"  >
+        <a onclick="printContract({{$client}})" class="menu-link px-3"  >
             Imprimer contrat
-        </button>
+        </a>
     </div>
     <!--end::Menu item-->
 </div>
