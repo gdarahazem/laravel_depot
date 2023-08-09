@@ -75,13 +75,24 @@
         <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
         <script>
+            function generateProductList(products) {
+                return `
+                        <ul>
+                            ${products.map(product => {
+                                    let finalPrice = product.price - (product.price * product.percentage);
+                                    return `<li style="font-size: 18px;">${product.name} | ${finalPrice.toFixed(2)} DT</li>`;
+                                }).join('')}
+                        </ul>
+                    `;
+            }
+
             function printContract(client) {
+                let productsListHtml = generateProductList(client.products);
                 let iframe = document.getElementById('printFrame');
                 let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
                 let currentDate = new Date();
                 let formattedDate = `${currentDate.getDate().toString().padStart(2, '0')}/${(currentDate.getMonth() + 1).toString().padStart(2, '0')}/${currentDate.getFullYear()}`;
-
 
 
                 let content = `
@@ -140,10 +151,11 @@
                     <h1 class="text-center-sub-title">ACTE DE DEPOT</h1>
                     <p class="date-right">Tunis le ${formattedDate}</p>
                     <p>Je soussignée ${client.fullname} Titulaire de la CIN n° : . . . . . . . . . . Tel : ${client.phonenumber} déclare avoir déposé auprès de {{ config('app.name') }}
-                    le(s) article(s) décrit(s) Ci-après :</p>
-                    <p>ACTE DE DEPOT
-                    J'atteste par le présent document que les produits sus-indiqués m’appartiennent (non volés et non empruntés) et qu'ils ne sont
-                    pas issus de la contrefaçon. A défaut, je prends entièrement la responsabilité que ce soit auprès de {{ config('app.name') }} ou auprès
+                le(s) article(s) décrit(s) Ci-après :</p>
+                ${productsListHtml}
+                <p>ACTE DE DEPOT
+                J'atteste par le présent document que les produits sus-indiqués m’appartiennent (non volés et non empruntés) et qu'ils ne sont
+                pas issus de la contrefaçon. A défaut, je prends entièrement la responsabilité que ce soit auprès de {{ config('app.name') }} ou auprès
                     des tiers.</p>
                     <p>
                     Par le présent acte, j’autorise {{ config('app.name') }} à vendre le(s) bien(s) ci-dessus au(x) prix indiqué(s) et à percevoir une

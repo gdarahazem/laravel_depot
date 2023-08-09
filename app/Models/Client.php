@@ -19,6 +19,7 @@ class Client extends Model
         'email_verified_at' => 'datetime',
         'created_at' => 'datetime',
     ];
+
     public function getProfilePhotoUrlAttribute()
     {
         if ($this->profile_photo_path) {
@@ -28,4 +29,8 @@ class Client extends Model
         return $this->profile_photo_path;
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class, "owner");
+    }
 }

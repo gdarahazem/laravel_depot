@@ -56,7 +56,7 @@ class ClientsDataTable extends DataTable
      */
     public function query(Client $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()->with('products');
     }
 
     /**
