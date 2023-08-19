@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b949557bd7f3fd14708ccc5cb7a998b8",
+    "content-hash": "d4561d9f75ef7c27d6ec108d44d17e8a",
     "packages": [
         {
             "name": "brick/math",
@@ -7268,16 +7268,16 @@
         },
         {
             "name": "laravel/pint",
-            "version": "v1.10.6",
+            "version": "v1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "d1915b6ecc6406c00472c6b9ae75b46aa153bbb2"
+                "reference": "88e835bf922b94017778bde89ef8f215e1ea40db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/d1915b6ecc6406c00472c6b9ae75b46aa153bbb2",
-                "reference": "d1915b6ecc6406c00472c6b9ae75b46aa153bbb2",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/88e835bf922b94017778bde89ef8f215e1ea40db",
+                "reference": "88e835bf922b94017778bde89ef8f215e1ea40db",
                 "shasum": ""
             },
             "require": {
@@ -7330,7 +7330,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2023-08-08T15:17:16+00:00"
+            "time": "2023-08-15T15:30:00+00:00"
         },
         {
             "name": "laravel/sail",

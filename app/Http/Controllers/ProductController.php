@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\ProductsDataTable;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(ProductsDataTable $dataTable)
     {
-        return Product::all();
+        return $dataTable->render('pages.apps.products.list');
     }
 
     public function store(Request $request)
